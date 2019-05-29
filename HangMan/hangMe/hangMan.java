@@ -1,13 +1,3 @@
-/**********************************************
-Workshop 1
-Course:JAC444
-Last Name:McGregor	
-First Name:David
-ID:147645170
-Section:SAB
-This assignment represents my own work in accordance with Seneca Academic Policy.
-Date:2019/05/23
-**********************************************/
 package hangMe;
 
 import java.util.Scanner;
