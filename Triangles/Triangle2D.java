@@ -5,13 +5,13 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 //Three points named p1, p2, and p3 of the type MyPoint with getter and setter methods. O
-//•A no-arg constructor that creates a default triangle with the points (0, 0), (1,1), and (2, 5). O
-//•A constructor that creates a triangle with the specified points. O
-//•A method getArea() that returns the area of the triangle. O
-//•A method getPerimeter() that returns the parameter of the triangle. O
-//•A method contains(MyPoint p) that returns true if the specified point p is inside this triangle (see Figure A).
-//•A method contains(Triangle2D t) that returns true if the specified triangle is inside this triangle (see Figure B).
-//•A method overlaps(Triangle2D t) that returns true if the specified triangle overlaps with this triangle (see Figure C)
+//â€¢A no-arg constructor that creates a default triangle with the points (0, 0), (1,1), and (2, 5). O
+//â€¢A constructor that creates a triangle with the specified points. O
+//â€¢A method getArea() that returns the area of the triangle. O
+//â€¢A method getPerimeter() that returns the parameter of the triangle. O
+//â€¢A method contains(MyPoint p) that returns true if the specified point p is inside this triangle (see Figure A).
+//â€¢A method contains(Triangle2D t) that returns true if the specified triangle is inside this triangle (see Figure B).
+//â€¢A method overlaps(Triangle2D t) that returns true if the specified triangle overlaps with this triangle (see Figure C)
 
 public class Triangle2D {
 
@@ -102,17 +102,61 @@ public class Triangle2D {
 		return Choice;
 	}
 	
+	
+	public boolean contains(double x, double y) {
+		
+		MyPoint outIn = new MyPoint(x,y);
+		Triangle2D triangle1 = new Triangle2D(p1, p2, outIn);
+		Triangle2D triangle2 = new Triangle2D(p2, p3, outIn);
+		Triangle2D triangle3 = new Triangle2D(p1, p3, outIn);
+		double pointArea = triangle1.getArea() + triangle2.getArea() + triangle3.getArea();
+		if(pointArea == this.getArea()) {
+			return true;
+		}else {
+		return false;
+		}
+	}
+	
+	
 	public boolean contains(MyPoint outIn) {
 //		Line2D.Double line1 = new Line2D.Double(p1.xyGetter(), outIn.xyGetter());
 //		Line2D.Double line2 = new Line2D.Double(p2.xyGetter(), outIn.xyGetter());
 //		Line2D.Double line3 = new Line2D.Double(p3.xyGetter(), outIn.xyGetter());
 				
-			if(line1.intersectsLine(triSide2) || line1.intersectsLine(triSide3)
-			|| line2.intersectsLine(triSide1) || line2.intersectsLine(triSide3)
-			|| line3.intersectsLine(triSide1) || line3.intersectsLine(triSide2)) {
-			return false; }
-				else{
-					return true; }
-			
+//			if(line1.intersectsLine(triSide2) || line1.intersectsLine(triSide3)
+//			|| line2.intersectsLine(triSide1) || line2.intersectsLine(triSide3)
+//			|| line3.intersectsLine(triSide1) || line3.intersectsLine(triSide2)) {
+//			return false; }
+//				else{
+//					return true; }
+		
+		Triangle2D triangle1 = new Triangle2D(p1, p2, outIn);
+		Triangle2D triangle2 = new Triangle2D(p2, p3, outIn);
+		Triangle2D triangle3 = new Triangle2D(p1, p3, outIn);
+		double pointArea = triangle1.getArea() + triangle2.getArea() + triangle3.getArea();
+		if(pointArea == this.getArea()) {
+			return true;
+		}else {
+		return false;
 		}
+	}
+	
+public boolean contains(Triangle2D x) {
+		
+		double xArea = x.getArea();
+		if(xArea <= this.getArea() && this.contains(x.p1) && this.contains(x.p2) && this.contains(x.p3)) {
+			return true;
+		}else {
+		return false;
+		}
+	}
+
+public boolean overlaps(Triangle2D x) {
+	
+	if(this.contains(x.p1) || this.contains(x.p2) || this.contains(x.p3)) {
+		return true;
+	}else if(this.contains(x)){
+	return false;
+	}else {return false;}
+}
 }

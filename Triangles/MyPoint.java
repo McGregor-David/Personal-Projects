@@ -4,7 +4,6 @@ import java.lang.Math;
 import java.awt.geom.Point2D;
 
 public class MyPoint {
-
 //	double[] xyCoord;
 	Point2D.Double xyCoord;
 	
@@ -48,6 +47,5 @@ public class MyPoint {
 	public Point2D.Double xyGetter() {
 		return xyCoord;
 	}
-	
 	
 }
