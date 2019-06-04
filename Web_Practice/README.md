@@ -21,7 +21,6 @@ https://nodejs.org/en/
 
 You can install the LTS (Long Term Support) version of node.js, which is
 currently 10.15.0, although any 10.x.x version should work.
-
 ## Install Dependencies
 
 Open a command line terminal and navigate (i.e., "cd") to the directory where

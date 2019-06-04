@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head> 
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
+
+<div id="app">
+    <div class="container">
+        <img :src='imgSrc' :title='imgTitle'>
+    </div>
+</div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    // var apiKey = "jzZS6bzEtHLJkJz4quK9upZl26C7wfOqGQeGF2XP";
+    // var url = "https//api.nasa.gov/planetary/apod?api_key=" + apiKey;
+    const vm = new Vue({
+        el: '#app',
+        data:{
+           imgSrc: '',
+           imgTitle: ''
+        },
+
+        created: function(){
+            this.fetchApod;
+        },
+
+        methods:{
+            fetchApod: function(){
+                var apiKey = "jzZS6bzEtHLJkJz4quK9upZl26C7wfOqGQeGF2XP";
+                var url = "https//api.nasa.gov/planetary/apod?api_key=" + apiKey;
+                axios.get(url)
+                    .then(function(res){
+                        vm.imgSrc = res.data.url;
+                        vm.imgTitle = res.data.title;
+                    }); 
+            }
+        }
+    });
+
+</script>
