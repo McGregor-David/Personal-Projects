@@ -4,33 +4,35 @@ public class Test
 {
 	public static void Main()
 	{
-	    int inputNumber = 49;
-            int resultThree = 0;
-            int resultFive = 0;
+	    int inputNumber = 1000;
+            double resultThree = 0;
+            double resultFive = 0;
             int modOfThree = 49 % 3;
             int modOfFive = 49 % 5;
 
 
-            int totalMultiplesThree = inputNumber / (3 - modOfThree);
-            int totalMultiplesFive = inputNumber / (3 - modOfFive);
+            int totalMultiplesThree = (inputNumber - modOfThree) / 3;
+            int totalMultiplesFive = (inputNumber - modOfFive) / 5;
 
             int x = 0;
             int y = 0;
-            while ( x < totalMultiplesThree ){
-
-                resultThree += 3 ^ x;
+            while (x < totalMultiplesThree)
+            {
+                resultThree += 3 * x;
+                Console.WriteLine(resultThree);
                 x++;
             }
 
-            while (y < totalMultiplesFive){
-
-                resultFive += 5 ^ y;
+            while (y < totalMultiplesFive)
+            {
+                resultFive += 5 * y;
+                Console.WriteLine(resultFive);
                 y++;
             }
 
-            int result = resultThree + resultFive;
-            Console.WriteLine(result);
+            double result = resultThree + resultFive;
+            Console.WriteLine("final " + result);
 
             //Expected result 543  
-	}
+        }
 }
