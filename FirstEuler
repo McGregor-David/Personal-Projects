@@ -4,7 +4,7 @@ public class Test
 {
 	public static void Main()
 	{
-	    int inputNumber = 1000;
+	    int inputNumber = 49;
             double resultThree = 0;
             double resultFive = 0;
             int modOfThree = 49 % 3;
