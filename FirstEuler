@@ -7,8 +7,8 @@ public class Test
 	    int inputNumber = 49;
             double resultThree = 0;
             double resultFive = 0;
-            int modOfThree = 49 % 3;
-            int modOfFive = 49 % 5;
+            int modOfThree = inputNumber % 3;
+            int modOfFive = inputNumber % 5;
 
 
             int totalMultiplesThree = (inputNumber - modOfThree) / 3;
