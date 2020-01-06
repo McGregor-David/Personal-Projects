@@ -1,0 +1,36 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+	    int inputNumber = 49;
+            int resultThree = 0;
+            int resultFive = 0;
+            int modOfThree = 49 % 3;
+            int modOfFive = 49 % 5;
+
+
+            int totalMultiplesThree = inputNumber / (3 - modOfThree);
+            int totalMultiplesFive = inputNumber / (3 - modOfFive);
+
+            int x = 0;
+            int y = 0;
+            while ( x < totalMultiplesThree ){
+
+                resultThree += 3 ^ x;
+                x++;
+            }
+
+            while (y < totalMultiplesFive){
+
+                resultFive += 5 ^ y;
+                y++;
+            }
+
+            int result = resultThree + resultFive;
+            Console.WriteLine(result);
+
+            //Expected result 543  
+	}
+}
